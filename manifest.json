@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "note Analytics",
+  "version": "1.0.0",
+  "description": "note.com\u306e\u8a18\u4e8b\u30d1\u30d5\u30a9\u30fc\u30de\u30f3\u30b9\u3092\u53ef\u8996\u5316\u3002\u30b9\u30ad\u63a8\u79fb\u30fb\u30d5\u30a9\u30ed\u30ef\u30fc\u589e\u6e1b\u30fb\u8a18\u4e8b\u5225\u4eba\u6c17\u5ea6\u3092\u30c0\u30c3\u30b7\u30e5\u30dc\u30fc\u30c9\u3067\u78ba\u8a8d",
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["https://note.com/*"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

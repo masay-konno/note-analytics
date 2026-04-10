@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="header">
+        <h1>note Analytics</h1>
+        <span class="header-credit">Made by <a href="https://note.com/konno_masayuki" target="_blank" rel="noopener noreferrer">@konno_masayuki</a></span>
+        <div class="header-actions">
+            <button class="btn-sm" id="btnRefresh">更新</button>
+            <button class="btn-sm" id="btnSettings">設定</button>
+        </div>
+    </div>
+
+    <!-- 未設定時 -->
+    <div class="setup-msg" id="setupMsg" style="display:none">
+        <h2>note Analytics</h2>
+        <p>note.comのユーザー名を設定してください</p>
+        <button class="btn-primary" id="btnOpenSettings">設定を開く</button>
+    </div>
+
+    <!-- ダッシュボード -->
+    <div class="container" id="dashboard" style="display:none">
+        <div class="updated-at" id="updatedAt"></div>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-label">フォロワー 今日</div>
+                <div><span class="kpi-value-big" id="kpiFollowersDiff">—</span><span class="kpi-total" id="kpiFollowers"></span></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">記事 今日</div>
+                <div><span class="kpi-value-big" id="kpiArticlesDiff">—</span><span class="kpi-total" id="kpiArticles"></span></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">スキ 今日</div>
+                <div><span class="kpi-value-big" id="kpiLikesDiff">—</span><span class="kpi-total" id="kpiLikes"></span></div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-label">コメント 今日</div>
+                <div><span class="kpi-value-big" id="kpiCommentsDiff">—</span><span class="kpi-total" id="kpiComments"></span></div>
+            </div>
+        </div>
+
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title">フォロワー推移</div>
+                <div class="chart-container"><canvas id="chartFollowers"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title">日別スキ増加数</div>
+                <div class="chart-container"><canvas id="chartDailyLikes"></canvas></div>
+            </div>
+        </div>
+
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title">日別コメント増加数</div>
+                <div class="chart-container"><canvas id="chartDailyComments"></canvas></div>
+            </div>
+            <div class="chart-card">
+                <div class="chart-title">投稿頻度 vs フォロワー増加（週次）</div>
+                <div class="chart-container"><canvas id="chartFreqVsFollowers"></canvas></div>
+            </div>
+        </div>
+
+
+        <div class="table-card" style="margin-bottom:12px">
+            <div class="chart-title">直近7日間のスキ増加ランキング</div>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>タイトル</th>
+                        <th class="num">+スキ</th>
+                        <th class="num">総合計</th>
+                        <th>推移</th>
+                    </tr>
+                </thead>
+                <tbody id="topArticlesBody"></tbody>
+            </table>
+            <div id="topArticlesEmpty" style="display:none;text-align:center;padding:16px;color:var(--text-secondary);font-size:12px">前日比の増加がありません</div>
+        </div>
+
+    </div>
+
+    <script src="lib/chart.min.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
