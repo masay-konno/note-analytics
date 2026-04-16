@@ -26,7 +26,8 @@ document.getElementById('btnSave').addEventListener('click', function() {
 });
 
 // インポート
-document.getElementById('btnImport').addEventListener('click', function() {
+var btnImport = document.getElementById('btnImport');
+if (btnImport) btnImport.addEventListener('click', function() {
   var importStatus = document.getElementById('importStatus');
   importStatus.style.display = 'block';
   importStatus.style.color = '#8e8e93';

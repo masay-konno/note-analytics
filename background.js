@@ -45,7 +45,8 @@ async function fetchAndStore() {
       fetchAllArticles(urlname),
     ]);
 
-    const today = new Date().toISOString().slice(0, 10);
+    const now = new Date();
+    const today = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
     const snapshot = {
       follower_count: creatorInfo.followerCount,
       note_count: creatorInfo.noteCount,
